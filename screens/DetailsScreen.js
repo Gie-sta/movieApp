@@ -5,18 +5,11 @@ import { IMAGE_URL } from '../api/constants';
 import Button from '../components/Button';
 import MoviesList from '../components/MoviesList';
 import { fethchRecomended } from '../api/requests';
-import ErrorMesage from '../components/ErrorMesage';
-
 
 const DetailsScreen = (props) => {
-const[id, setId] = useState('')
 
-
-// setMovie(props.route.params)
   const movie = props.route.params;
-  // console.log(movie)
-  
-  // console.log(movie)
+ 
   return (
     <ScrollView style={styles.scrollContainer}>
       <View style={styles.movieContainer}>
@@ -62,11 +55,9 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: '#0d253f'
     },
-    movieContainer: {
-      padding: 5,
+  movieContainer: {
+    padding: 5,
     backgroundColor: '#0D2948',
-    
-
     },
   image: {
     width: (deviceWidth * 95) / 100,
@@ -106,7 +97,6 @@ const styles = StyleSheet.create({
   listContainer:{
     minHeight: 280,
     marginBottom: 30
-
   }
 })
 

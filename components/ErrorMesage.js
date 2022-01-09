@@ -22,18 +22,15 @@ const styles = StyleSheet.create({
  flex: 1,
  justifyContent:'center',
  alignItems:'center',
-//  top:-200
   },
    ops: {
      marginLeft: 'auto',
      marginRight:'auto',
      color: '#E0E6ED',
    },
-  
    image:{
      width:50,
      height:50,
      marginTop:20,
-
    }
  });

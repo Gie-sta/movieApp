@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import VideoPlay from '../components/VideoPlay';
 
 const PlayerScreen = (props) => {
@@ -8,12 +8,8 @@ const PlayerScreen = (props) => {
   return (
   
     <View  style={styles.container}>
-      {/* <Text>{movie.title}</Text> */}
-      {/* {{movie}?  <Text>{movie.title}</Text>:  <Text>no movie</Text>
-      } */}
       <VideoPlay
-      style={styles.video}
-     
+      style={styles.video}  
       id={movie.id}
       navigation={props.navigation}/>
     </View>

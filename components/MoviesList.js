@@ -5,11 +5,8 @@ import { URL } from '../api/constants';
 import axios from 'axios';
 import MovieCard from './MovieCard';
 import ErrorMesage from './ErrorMesage';
-import { fethchRecomended } from '../api/requests';
 
-//  ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- const MoviesList =  ({navigation, category, categoryTitle,id}) => {
-  //  console.log(id)
+ const MoviesList =  ({navigation, category, categoryTitle,id}) => {  //  console.log(id)
 
   const [isLoading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -18,12 +15,10 @@ import { fethchRecomended } from '../api/requests';
  
 
   const getMovies = async () => {
-    try {
-      
-      console.log((`${URL}${category}${page}`));
+    try {     
      const response = await axios.get(`${URL}${category}${page}`);
      const results = response.data.results;
-    //  setMovies(results);
+
     if (movies) {
       setMovies([...movies, ...results]);
     } else {
@@ -44,15 +39,12 @@ import { fethchRecomended } from '../api/requests';
    getMovies();
  }, [page]);
 
-// console.log(id);
-// console.log(movies)
+
   return (
-    <View style={{ flex: 1}}>
-      
+    <View style={{ flex: 1}}>     
       <Text style={styles.categoryTitle}>{categoryTitle}</Text>
     {isLoading ? <ActivityIndicator  size="large" color="#0000ff"/> : error? 
-   <ErrorMesage text={'Ops, something went wrong!'}/>: (
-      
+   <ErrorMesage text={'Ops, something went wrong!'}/>: (   
       <FlatList
         horizontal={true}
         data={movies}
@@ -84,12 +76,8 @@ const styles = StyleSheet.create({
   fontWeight: 'bold',
   paddingBottom: 10,
   letterSpacing:1.2,
-  // marginBottom:5,
   marginLeft:4,
   color: '#E0E6ED'
-  // color: '#0d253f'
-
-
   }
   
 });

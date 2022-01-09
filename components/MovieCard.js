@@ -1,5 +1,5 @@
 import React from 'react'
-import {Text, TouchableOpacity, Image, StyleSheet,ActivityIndicator } from 'react-native';
+import {Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 import { IMAGE_URL } from '../api/constants';
 
@@ -16,7 +16,6 @@ const MovieCard = ({title, imgUrl, onPress}) => {
     </TouchableOpacity>
   )
 }
-
 
 const styles = StyleSheet.create({
   card:{

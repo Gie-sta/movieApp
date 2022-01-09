@@ -1,17 +1,11 @@
 import React from 'react';
-// !!!!!!!!!!!!!!!!!
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, FlatList} from 'react-native';
 
 import { fetch } from '../api/requests';
-// import { fetchPopular } from '../api/requests';
-// import { fetchUpcoming } from '../api/requests';
-// import { fetchTopRated } from '../api/requests';
 import MoviesList from '../components/MoviesList';
 
 
 const BrowseScreen = ({navigation}) => {
-
 
   return (
     <View style={styles.container}>

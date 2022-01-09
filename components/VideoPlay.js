@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback, useRef} from 'react';
-import { StyleSheet, Text, View, Alert, ActivityIndicator} from 'react-native';
+import { View, Alert, ActivityIndicator} from 'react-native';
 import YoutubePlayer from "react-native-youtube-iframe";
 import axios from 'axios';
 
@@ -11,8 +11,7 @@ import ErrorMesage from './ErrorMesage';
 const VideoPlay = ({id}) => {
   const [isLoading, setLoading] = useState(true);
   const [video, setVideo] = useState([]);
-  const [error, setError] = useState(false);
-  
+  const [error, setError] = useState(false); 
   const [playing, setPlaying] = useState(false);
   const playerRef = useRef();
 
@@ -24,8 +23,7 @@ const VideoPlay = ({id}) => {
       setError(false);
     } catch (error) {
       console.error(error)
-      setError(true);
-      
+      setError(true);   
     } finally {
       setLoading(false);
     }
@@ -82,7 +80,6 @@ const VideoPlay = ({id}) => {
       {isLoading ? <ActivityIndicator  size="large" color="#0000ff"/> : video === null || error ? 
       <ErrorMesage
       text={'Ops, looks like no video was found!'}/>
-   
       :
        <YoutubePlayer 
        style={{flex: 1}}
@@ -96,26 +93,6 @@ const VideoPlay = ({id}) => {
   </View>
   )
 }
-
-// const styles = StyleSheet.create({
-//  container:{
-// flex: 1,
-// justifyContent:'center',
-// alignItems:'center',
-// top:-200
-//  },
-//   ops: {
-//     marginLeft: 'auto',
-//     marginRight:'auto',
-//     color: '#000',
-//   },
- 
-//   image:{
-//     width:100,
-//     height:100,
-//     marginTop:20
-//   }
-// });
 
 
 export default VideoPlay
