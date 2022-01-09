@@ -35,12 +35,12 @@ const BrowseScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f3f3f3',
+    backgroundColor: '#0d253f',
     alignItems: 'center',
     justifyContent: 'center',
   },
   listContainer:{
-    height: '30%',
+    minHeight: 280,
     margin: 10
   }
 

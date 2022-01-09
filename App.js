@@ -21,10 +21,10 @@ export default function App() {
   return (
     <NavigationContainer>
             <Stack.Navigator 
-  //            screenOptions={{
-  //   headerShown: true,
-  //   headerStyle: { backgroundColor: 'tomato', height: 20 },
-  // }}
+             screenOptions={{
+    // headerShown: true,
+    headerStyle: { backgroundColor: '#01b4e4', height: 20 },
+  }}
   >
         <Stack.Screen
         options={{headerShown: false}}

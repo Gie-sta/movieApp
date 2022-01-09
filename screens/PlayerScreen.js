@@ -9,6 +9,8 @@ const PlayerScreen = (props) => {
   
     <View  style={styles.container}>
       {/* <Text>{movie.title}</Text> */}
+      {/* {{movie}?  <Text>{movie.title}</Text>:  <Text>no movie</Text>
+      } */}
       <VideoPlay
       style={styles.video}
      
@@ -25,7 +27,8 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'center',
     width:'100%',
-    marginTop: 200
+   paddingTop: 200,
+   backgroundColor: '#0d253f'
   },
 video: {
   width: '100%'

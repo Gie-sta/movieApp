@@ -1,5 +1,5 @@
 import React from 'react'
-import {Text, TouchableOpacity, Image, StyleSheet,ActivityIndicator,Dimensions } from 'react-native';
+import {Text, TouchableOpacity, Image, StyleSheet,ActivityIndicator } from 'react-native';
 
 import { IMAGE_URL } from '../api/constants';
 
@@ -17,26 +17,23 @@ const MovieCard = ({title, imgUrl, onPress}) => {
   )
 }
 
-// const deviceWidth = Dimensions.get("window").width;
-// const deviceHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   card:{
-width:144
+    backgroundColor: '#0D2948',
+    height:'100%',
+    paddingTop: 10,
+width:144,
+marginRight: 10
   },
   title: {
     marginLeft: 4,
     width: 144,
     paddingBottom: 5,
-    // top:-5
-    // height:35
+    color: '#E0E6ED'
   },
   image: {
-// width: 144,
 height:204,
-// marginRight:2,
-// width: (deviceWidth * 48) / 100,
-// height: (deviceHeight * 40) / 100,
 resizeMode:'contain'
 
   }

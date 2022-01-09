@@ -1,16 +1,11 @@
 import React, {useState, useEffect, useCallback, useRef} from 'react';
-import { StyleSheet, Text, View, Button, Alert} from 'react-native';
+import { StyleSheet, Text, View, Alert, ActivityIndicator} from 'react-native';
 import YoutubePlayer from "react-native-youtube-iframe";
+import axios from 'axios';
 
 import { URL } from '../api/constants';
 import { fetchVideo } from '../api/requests';
-import axios from 'axios';
-
-// PADARYT KAD RODYTU SORRY JEI NERA VIDEO !!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
+import ErrorMesage from './ErrorMesage';
 
 
 const VideoPlay = ({id}) => {
@@ -37,7 +32,6 @@ const VideoPlay = ({id}) => {
   }
  
  const choseTrailer = (videos) => {
-  //  console.log(videos)
     const oficialTrailersName = videos.filter((item)=>item.type === 'Trailer' && item.name === 'Official Trailer')
     const otherOfficialTrailers= videos.filter((item)=>item.type === 'Trailer' && item.official)
     const officialTeasers = videos.filter((item)=>item.type === 'Teaser' && item.official);
@@ -85,41 +79,43 @@ const VideoPlay = ({id}) => {
 
   return (
     <View style={{ flex: 1}}>
-       {error && <Text style={styles.ops} >OOOOOPS, Something went wrong</Text>}
-      {video === null ? <Text style={styles.ops}>OOOOPS, looks like no videos were found!</Text> : null
-      // <Text style={styles.noVideo}>videos were found</Text>
+      {isLoading ? <ActivityIndicator  size="large" color="#0000ff"/> : video === null || error ? 
+      <ErrorMesage
+      text={'Ops, looks like no video was found!'}/>
+   
+      :
+       <YoutubePlayer 
+       style={{flex: 1}}
+        ref={playerRef}
+       height={300}
+       play={playing}
+       videoId={video}
+       onChangeState={onStateChange}
+     />
       }
-        <YoutubePlayer 
-        style={{flex: 1}}
-         ref={playerRef}
-        height={300}
-        play={playing}
-        videoId={video}
-        onChangeState={onStateChange}
-      />
-      {/* <Button 
-      title="log details"
-      onPress={() => {
-        playerRef.current?.getCurrentTime().then(
-          currentTime => console.log({currentTime})
-        );
-        playerRef.current?.getDuration().then(
-          getDuration => console.log({getDuration})
-        );
-      }}
-      /> */}
   </View>
   )
 }
 
-const styles = StyleSheet.create({
+// const styles = StyleSheet.create({
+//  container:{
+// flex: 1,
+// justifyContent:'center',
+// alignItems:'center',
+// top:-200
+//  },
+//   ops: {
+//     marginLeft: 'auto',
+//     marginRight:'auto',
+//     color: '#000',
+//   },
  
-  ops: {
-  marginBottom: 10,
-  marginTop:10,
-  color: 'red'
-  }
-});
+//   image:{
+//     width:100,
+//     height:100,
+//     marginTop:20
+//   }
+// });
 
 
 export default VideoPlay

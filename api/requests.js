@@ -19,13 +19,6 @@ export const fetch = [
   
 ]
 
-
-// export const fetchPopular = `movie/popular?api_key=${API_KEY}`;
-
-// export const fetchTopRated = `movie/top_rated?api_key=${API_KEY}&language=en-US`;
-
-// export const fetchUpcoming = `movie/upcoming?api_key=${API_KEY}&language=en-US`
-
 export const fethchRecomended= (id) => `movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=`
 
 export const fetchVideo = (id) => `movie/${id}/videos?api_key=${API_KEY}&language=en-US`;

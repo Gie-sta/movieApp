@@ -4,23 +4,26 @@ import { StyleSheet, Text, View,  ActivityIndicator, FlatList } from 'react-nati
 import { URL } from '../api/constants';
 import axios from 'axios';
 import MovieCard from './MovieCard';
+import ErrorMesage from './ErrorMesage';
+import { fethchRecomended } from '../api/requests';
 
 //  ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- const MoviesList =  ({navigation, category, categoryTitle, id}) => {
-   console.log(category)
+ const MoviesList =  ({navigation, category, categoryTitle,id}) => {
+  //  console.log(id)
 
   const [isLoading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(false);
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1);
+ 
 
   const getMovies = async () => {
     try {
+      
       console.log((`${URL}${category}${page}`));
      const response = await axios.get(`${URL}${category}${page}`);
      const results = response.data.results;
     //  setMovies(results);
-    console.log(movies? true: false)
     if (movies) {
       setMovies([...movies, ...results]);
     } else {
@@ -39,18 +42,19 @@ import MovieCard from './MovieCard';
  
  useEffect(() => {
    getMovies();
- }, [page, id]);
+ }, [page]);
 
 // console.log(id);
 // console.log(movies)
   return (
     <View style={{ flex: 1}}>
-      {/* <ActivityIndicator size="large" color="#0000ff"/> */}
-      {/* {error && <Text>OOOOOps, Something went wrong</Text>} */}
+      
       <Text style={styles.categoryTitle}>{categoryTitle}</Text>
-    {isLoading ? <ActivityIndicator  size="large" color="#0000ff"/> : (
+    {isLoading ? <ActivityIndicator  size="large" color="#0000ff"/> : error? 
+   <ErrorMesage text={'Ops, something went wrong!'}/>: (
+      
       <FlatList
-      horizontal={true}
+        horizontal={true}
         data={movies}
         keyExtractor={(item, index) => index.toString()}
         onEndReached={() => {
@@ -62,7 +66,7 @@ import MovieCard from './MovieCard';
             title={item.title}
             imgUrl={item.poster_path}
             onPress={() =>
-        navigation.navigate('Details', {title: item.title, imgUrl:item.poster_path, overview:item.overview, id:item.id, date:item.release_date })
+        navigation.push('Details', {title: item.title, imgUrl:item.poster_path, overview:item.overview, id:item.id, date:item.release_date })
             }
             />
         </View>
@@ -79,9 +83,11 @@ const styles = StyleSheet.create({
   fontSize: 16,
   fontWeight: 'bold',
   paddingBottom: 10,
+  letterSpacing:1.2,
   // marginBottom:5,
   marginLeft:4,
-  color: '#0d253f'
+  color: '#E0E6ED'
+  // color: '#0d253f'
 
 
   }
