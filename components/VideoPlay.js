@@ -37,7 +37,7 @@ const VideoPlay = ({id}) => {
   }
  
  const choseTrailer = (videos) => {
-   console.log(videos)
+  //  console.log(videos)
     const oficialTrailersName = videos.filter((item)=>item.type === 'Trailer' && item.name === 'Official Trailer')
     const otherOfficialTrailers= videos.filter((item)=>item.type === 'Trailer' && item.official)
     const officialTeasers = videos.filter((item)=>item.type === 'Teaser' && item.official);
@@ -84,9 +84,11 @@ const VideoPlay = ({id}) => {
 
 
   return (
-    <View style={{ flex: 1, padding: 24 }}>
-       {error && <Text>OOOOOps, Something went wrong</Text>}
-      {video === null ? <Text>Ops, looks like no videos were found</Text> : <Text style={styles.noVideo}>videos were found</Text>}
+    <View style={{ flex: 1}}>
+       {error && <Text style={styles.ops} >OOOOOPS, Something went wrong</Text>}
+      {video === null ? <Text style={styles.ops}>OOOOPS, looks like no videos were found!</Text> : null
+      // <Text style={styles.noVideo}>videos were found</Text>
+      }
         <YoutubePlayer 
         style={{flex: 1}}
          ref={playerRef}
@@ -95,7 +97,7 @@ const VideoPlay = ({id}) => {
         videoId={video}
         onChangeState={onStateChange}
       />
-      <Button 
+      {/* <Button 
       title="log details"
       onPress={() => {
         playerRef.current?.getCurrentTime().then(
@@ -105,22 +107,18 @@ const VideoPlay = ({id}) => {
           getDuration => console.log({getDuration})
         );
       }}
-      />
+      /> */}
   </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f3f3f3',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  // noVideo: {
-  //   alignSelf: 'flex-end',
-  //   backgroundColor: 'red'
-  // }
+ 
+  ops: {
+  marginBottom: 10,
+  marginTop:10,
+  color: 'red'
+  }
 });
 
 

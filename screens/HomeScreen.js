@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView} from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ImageBackground} from 'react-native';
 
 import Button from '../components/Button';
 
@@ -8,16 +8,19 @@ import Button from '../components/Button';
 const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.pageContainer}>
+      
       <View style={styles.contentContainer}>
     <Text style={styles.header}>ReactSeals presents</Text>
     <View style={styles.buttonsContainer}>
       <Button 
+     
       text='Browse'
       onPress={() =>
         navigation.navigate('Browse')
       }
       />
-      <Button style={styles.btnLogin}
+      <Button 
+     
         text='Login'
         />
       
@@ -46,8 +49,11 @@ top:-10
     textAlign:'center'
   },
   buttonsContainer:{
-    paddingBottom:50
+    paddingBottom:50,
+    marginLeft: 'auto',
+    marginRight:'auto',
   },
+  
 
 
   

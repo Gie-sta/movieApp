@@ -16,11 +16,10 @@ const Button = ({text, onPress}) => {
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    marginBottom: 20,
-    marginLeft: 'auto',
-    marginRight:'auto',
+    marginBottom: 10,
+   
     backgroundColor: '#ffffff',
-    width: '60%',
+    width: 200,
     borderTopColor:'#e0e0e0',
     borderTopWidth:1
 

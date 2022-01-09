@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import VideoPlay from '../components/VideoPlay';
 
 const PlayerScreen = (props) => {
@@ -7,9 +7,11 @@ const PlayerScreen = (props) => {
   const movie = props.route.params;
   return (
   
-    <View>
-      <Text>{movie.title}</Text>
+    <View  style={styles.container}>
+      {/* <Text>{movie.title}</Text> */}
       <VideoPlay
+      style={styles.video}
+     
       id={movie.id}
       navigation={props.navigation}/>
     </View>
@@ -18,3 +20,14 @@ const PlayerScreen = (props) => {
 
 export default PlayerScreen
 
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    justifyContent:'center',
+    width:'100%',
+    marginTop: 200
+  },
+video: {
+  width: '100%'
+}
+})

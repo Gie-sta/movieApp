@@ -1,12 +1,12 @@
 import React from 'react';
 // !!!!!!!!!!!!!!!!!
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View} from 'react-native';
+import { StyleSheet, View, FlatList} from 'react-native';
 
-
-import { fetchPopular } from '../api/requests';
-import { fetchUpcoming } from '../api/requests';
-import { fetchTopRated } from '../api/requests';
+import { fetch } from '../api/requests';
+// import { fetchPopular } from '../api/requests';
+// import { fetchUpcoming } from '../api/requests';
+// import { fetchTopRated } from '../api/requests';
 import MoviesList from '../components/MoviesList';
 
 
@@ -15,9 +15,19 @@ const BrowseScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <MoviesList navigation={navigation} category={fetchPopular} categoryTitle={'Popular Movies'}/>
-      <MoviesList navigation={navigation} category={fetchTopRated} categoryTitle={'Top rated Movies'}/>
-      <MoviesList navigation={navigation} category={fetchUpcoming} categoryTitle={'Upcoming movies'}/>
+      <FlatList
+        data={fetch}
+        renderItem={({ item }) => (
+          <View style={styles.listContainer}>
+            <MoviesList
+            
+            navigation={navigation} 
+            category={item.url} 
+            categoryTitle={item.categoryTitle}
+            />
+        </View>
+        )}
+      />
     </View>
   )
 }
@@ -29,6 +39,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  listContainer:{
+    height: '30%',
+    margin: 10
+  }
 
 });
 

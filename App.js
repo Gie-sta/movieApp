@@ -20,7 +20,12 @@ export default function App() {
   console.log('lounched');
   return (
     <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator 
+  //            screenOptions={{
+  //   headerShown: true,
+  //   headerStyle: { backgroundColor: 'tomato', height: 20 },
+  // }}
+  >
         <Stack.Screen
         options={{headerShown: false}}
           name="Home"
@@ -30,9 +35,10 @@ export default function App() {
         <Stack.Screen 
         name="Browse" 
         component={BrowseScreen}
-        options={{ title: 'Movies' }}
+        options={{ title: 'Movies', }}// Specify the height of your custom header}}
          />
         <Stack.Screen 
+        
         name="Details" 
         component={DetailsScreen}
         options={({ route }) => ({ title: route.params.title })}
@@ -40,7 +46,10 @@ export default function App() {
         <Stack.Screen 
         name="Player" 
         component={PlayerScreen}
-        options={({ route }) => ({ title: `Trailer: ${route.params.title}`})}
+        options={({ route }) => ({ 
+          title: `Trailer: ${route.params.title}`
+      
+        })}
          />
       </Stack.Navigator>
 
