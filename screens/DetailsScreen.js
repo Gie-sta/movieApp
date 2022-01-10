@@ -5,6 +5,7 @@ import { IMAGE_URL } from '../api/constants';
 import Button from '../components/Button';
 import MoviesList from '../components/MoviesList';
 import { fethchRecomended } from '../api/requests';
+import { primaryColor, secondaryColor, lightColor } from '../helpers/colors';
 
 const DetailsScreen = (props) => {
 
@@ -53,11 +54,11 @@ const deviceHeight = Dimensions.get("window").height;
 const styles = StyleSheet.create({
   scrollContainer:{
     padding: 15,
-    backgroundColor: '#0d253f'
+    backgroundColor: primaryColor
     },
   movieContainer: {
     padding: 5,
-    backgroundColor: '#0D2948',
+    backgroundColor: secondaryColor,
     },
   image: {
     width: (deviceWidth * 95) / 100,
@@ -68,17 +69,17 @@ const styles = StyleSheet.create({
   details:{
     fontWeight: 'bold',
     fontSize:25,
-    color: '#E0E6ED',
+    color: lightColor,
     paddingLeft:4
 
   },
   title:{
-    color: '#E0E6ED'
+    color: lightColor
 
   },
   titleName: {
     fontWeight: 'bold',
-    color: '#E0E6ED',
+    color: lightColor,
     letterSpacing:1.2
 
   },
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
     marginLeft:4,
     marginRight:4,
-    color: '#E0E6ED'
+    color: lightColor
 
   },
   btnContiner:{

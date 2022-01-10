@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native';
+
 import VideoPlay from '../components/VideoPlay';
+import { primaryColor } from '../helpers/colors';
 
 const PlayerScreen = (props) => {
   
@@ -24,7 +26,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     width:'100%',
    paddingTop: 200,
-   backgroundColor: '#0d253f'
+   backgroundColor: primaryColor
   },
 video: {
   width: '100%'

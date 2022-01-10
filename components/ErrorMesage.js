@@ -1,5 +1,7 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native'
+import {View, Text, Image, StyleSheet} from 'react-native';
+
+import { lightColor } from '../helpers/colors';
 
 const ErrorMesage = ({text}) => {
   return (
@@ -26,11 +28,11 @@ const styles = StyleSheet.create({
    ops: {
      marginLeft: 'auto',
      marginRight:'auto',
-     color: '#E0E6ED',
+     color: lightColor,
    },
    image:{
      width:50,
      height:50,
-     marginTop:20,
+     marginTop:20
    }
  });

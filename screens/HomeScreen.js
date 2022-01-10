@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SafeAreaView, Image} from 'react-native';
 
 import Button from '../components/Button';
+import { primaryColor, lightColor } from '../helpers/colors';
 
 
 const HomeScreen = ({navigation}) => {
@@ -36,7 +37,7 @@ const HomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   pageContainer: {
     flex: 1,
-   backgroundColor:'#0d253f'
+   backgroundColor:primaryColor
   },
     content:{
     justifyContent: 'space-between',
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   header:{
     fontSize:30,
     textAlign:'center',
-    color:'#E0E6ED',
+    color:lightColor,
     letterSpacing:1.6,
     top:-20
   },
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     marginRight:'auto',
   },
   bottomText:{
-    color:'#E0E6ED',
+    color:lightColor,
     textAlign:'center',
     paddingBottom:10
   }

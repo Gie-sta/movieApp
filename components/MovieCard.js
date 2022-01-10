@@ -2,6 +2,7 @@ import React from 'react'
 import {Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 import { IMAGE_URL } from '../api/constants';
+import { secondaryColor, lightColor } from '../helpers/colors';
 
 const MovieCard = ({title, imgUrl, onPress}) => {
   return (
@@ -19,7 +20,7 @@ const MovieCard = ({title, imgUrl, onPress}) => {
 
 const styles = StyleSheet.create({
   card:{
-    backgroundColor: '#0D2948',
+    backgroundColor: secondaryColor,
     height:'100%',
     paddingTop: 10,
 width:144,
@@ -29,7 +30,7 @@ marginRight: 10
     marginLeft: 4,
     width: 144,
     paddingBottom: 5,
-    color: '#E0E6ED'
+    color: lightColor
   },
   image: {
 height:204,

@@ -5,8 +5,10 @@ import { URL } from '../api/constants';
 import axios from 'axios';
 import MovieCard from './MovieCard';
 import ErrorMesage from './ErrorMesage';
+import { lightColor } from '../helpers/colors';
 
- const MoviesList =  ({navigation, category, categoryTitle,id}) => {  //  console.log(id)
+
+ const MoviesList =  ({navigation, category, categoryTitle,id}) => {  
 
   const [isLoading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -77,7 +79,7 @@ const styles = StyleSheet.create({
   paddingBottom: 10,
   letterSpacing:1.2,
   marginLeft:4,
-  color: '#E0E6ED'
+  color: lightColor
   }
   
 });

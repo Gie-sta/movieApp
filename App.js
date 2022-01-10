@@ -6,6 +6,7 @@ import HomeScreen from './screens/HomeScreen';
 import BrowseScreen from './screens/BrowseScreen';
 import DetailsScreen from './screens/DetailsScreen';
 import PlayerScreen from './screens/PlayerScreen';
+import { thirdColor} from './helpers/colors';
 
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +17,7 @@ export default function App() {
     <NavigationContainer>
             <Stack.Navigator 
              screenOptions={{
-                 headerStyle: { backgroundColor: '#01b4e4'},
+                 headerStyle: { backgroundColor: thirdColor},
                  headerTintColor: '#ffffff',
   }}
   >
@@ -28,7 +29,7 @@ export default function App() {
         <Stack.Screen 
         name="Browse" 
         component={BrowseScreen}
-        options={{ title: 'Movies', }}// Specify the height of your custom header}}
+        options={{ title: 'Movies'}}
          />
         <Stack.Screen  
         name="Details" 
