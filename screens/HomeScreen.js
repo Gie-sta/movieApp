@@ -28,7 +28,7 @@ const HomeScreen = ({navigation}) => {
     </View>
     <Text style={styles.bottomText}>ReactSeals internship program assigment app</Text>
       </View>   
-    <StatusBar style="auto" />
+    <StatusBar style="light" />
   </SafeAreaView>
   )
 }
