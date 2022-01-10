@@ -78,8 +78,10 @@ const VideoPlay = ({id}) => {
   return (
     <View style={{ flex: 1}}>
       {isLoading ? <ActivityIndicator  size="large" color="#0000ff"/> : video === null || error ? 
+      <View style={{flex: 1, top:-200}}>
       <ErrorMesage
       text={'Ops, looks like no video was found!'}/>
+      </View>
       :
        <YoutubePlayer 
        style={{flex: 1}}
