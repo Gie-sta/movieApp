@@ -17,10 +17,8 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     marginBottom: 10,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#E0E6ED',
     width: 200,
-    borderTopColor:'#e0e0e0',
-    borderTopWidth:1
 
   },
   text: {
