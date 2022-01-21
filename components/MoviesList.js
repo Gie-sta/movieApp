@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   StyleSheet,
   Text,
@@ -19,28 +19,52 @@ const MoviesList = ({ navigation, category, categoryTitle, id }) => {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
 
-  const getMovies = async () => {
+  const getMovies = useCallback(async () => {
     try {
       const response = await axios.get(`${URL}${category}${page}`);
       const results = response.data.results;
-
       if (movies) {
         setMovies([...movies, ...results]);
       } else {
         setMovies(results);
       }
       setError(false);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
       setError(true);
     } finally {
       setLoading(false);
     }
-  };
+  }, [setMovies, setError, setLoading, category, page, movies]);
 
-  useEffect(() => {
-    getMovies();
-  }, [page]);
+  useEffect(getMovies, [page]);
+
+  const renderItem =
+    (onPress) =>
+    ({ item }) =>
+      (
+        <MovieCard
+          title={item.title}
+          imgUrl={item.poster_path}
+          onPress={onPress(item)}
+        />
+      );
+
+  const keyExtractor = (item, index) => index.toString();
+
+  const onEndReached = useCallback(() => setPage(page + 1), [setPage, page]);
+
+  const onPress = useCallback(
+    (item) => () =>
+      navigation.push("Details", {
+        title: item.title,
+        imgUrl: item.poster_path,
+        overview: item.overview,
+        id: item.id,
+        date: item.release_date,
+      }),
+    [navigation]
+  );
 
   return (
     <View style={{ flex: 1 }}>
@@ -53,27 +77,9 @@ const MoviesList = ({ navigation, category, categoryTitle, id }) => {
         <FlatList
           horizontal={true}
           data={movies}
-          keyExtractor={(item, index) => index.toString()}
-          onEndReached={() => {
-            setPage(page + 1);
-          }}
-          renderItem={({ item }) => (
-            <View>
-              <MovieCard
-                title={item.title}
-                imgUrl={item.poster_path}
-                onPress={() =>
-                  navigation.push("Details", {
-                    title: item.title,
-                    imgUrl: item.poster_path,
-                    overview: item.overview,
-                    id: item.id,
-                    date: item.release_date,
-                  })
-                }
-              />
-            </View>
-          )}
+          keyExtractor={keyExtractor}
+          onEndReached={onEndReached}
+          renderItem={renderItem(onPress)}
         />
       )}
     </View>

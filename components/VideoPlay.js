@@ -14,19 +14,19 @@ const VideoPlay = ({ id }) => {
   const [playing, setPlaying] = useState(false);
   const playerRef = useRef();
 
-  const getVideo = async () => {
+  const getVideo = useCallback(async () => {
     try {
       const response = await axios.get(`${URL}${fetchVideo(id)}`);
       const videos = response.data.results;
       setVideo(videos.length === 0 ? null : choseTrailer(videos));
       setError(false);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
       setError(true);
     } finally {
       setLoading(false);
     }
-  };
+  }, [setVideo, choseTrailer, fetchVideo, setError, setLoading]);
 
   const choseTrailer = (videos) => {
     const oficialTrailersName = videos.filter(
