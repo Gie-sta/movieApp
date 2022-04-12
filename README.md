@@ -43,12 +43,12 @@ Create application for Android platform utilizating https://reactnative.dev/ fra
 
 ### Browse page
 
-![moviesBrowse](https://user-images.githubusercontent.com/70339208/162918734-9dd62220-03c7-4096-b6e4-fa8223fe2e70.PNG)
+![moviesBrowse](https://user-images.githubusercontent.com/70339208/162921329-4843c225-a61c-4ac1-98fe-609ffcdebce4.PNG)
 
 ### Details page
 
-![Screenshot_1649059795](https://user-images.githubusercontent.com/70339208/162918978-a544a0e7-4ff0-4e28-8d12-2ab8b270112f.png)
+![Screenshot_1649059795](https://user-images.githubusercontent.com/70339208/162921344-c2c44dc4-3dce-44e9-b922-a6f3106b10f0.png)
 
 ### Trailer video play page
 
-![Screenshot_1649059895](https://user-images.githubusercontent.com/70339208/162919152-00765bf2-f607-4195-a2b5-57b09ace60ed.png)
+![Screenshot_1649059895](https://user-images.githubusercontent.com/70339208/162921352-e6a8bcad-e0dd-44d4-b45b-b65e567c112f.png)
