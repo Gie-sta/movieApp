@@ -9,7 +9,8 @@
   - [Built with](#built-with)
 - [Screenshots](#screenshots)
   - [Browse page](#browse-page)
-  - [Details page](#details-page) -[Trailer video player page](#trailer-video-play-page)
+  - [Details page](#details-page)
+  - [Trailer video player page](#trailer-video-play-page)
 
 ## The challenge
 
