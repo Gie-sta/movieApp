@@ -7,6 +7,9 @@
   - [Required functionality](#required-functionality)
 - [My process](#my-process)
   - [Built with](#built-with)
+- [Screenshots](#screenshots)
+  - [Browse page](#browse-page)
+  - [Details page](#details-page) -[Trailer video player page](#trailer-video-play-page)
 
 ## The challenge
 
